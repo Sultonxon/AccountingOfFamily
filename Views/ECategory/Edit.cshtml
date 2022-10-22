@@ -1,0 +1,17 @@
+﻿@model ECategoryEditModel
+
+<div asp-validation-summary="All"></div>
+<form method="post" asp-action="Update" asp-route-returnUrl="@ViewBag.returnUrl">
+    <input type="hidden" value="@Model.ECategory.Id" name="Id" />
+    <div class="form-group">
+        <label asp-for="ECategory.Name">Название категория</label>
+        <input asp-for="ECategory.Name" name="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ECategory.Description">Определение</label>
+        <input asp-for="ECategory.Description" name="Description" class="form-control" />
+    </div>
+
+    <button type="submit" class=" btn btn-primary">Сохранить</button>
+    <a class=" btn btn-outline-primary" href="@ViewBag.returnUrl">Отменить</a>
+</form>

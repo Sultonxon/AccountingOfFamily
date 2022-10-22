@@ -1,0 +1,26 @@
+﻿@model bool
+
+<h4 class="p-3 m-3 text-center text-white">По умолчанию после миграции эти данних будет в системе</h4>
+<table class="table table-bordered table-striped table-sm">
+    <tr>
+        <th>UserName</th><th>Email</th><th>Password</th><th>Role</th>
+    </tr>
+    <tr>
+        <td>Sultonxon</td>
+        <td>qudratovsultonson20011124@gmail.com</td>
+        <td>20011124</td>
+        <td>Admin, User</td>
+    </tr>
+</table> 
+
+@if (Model)
+{
+    <h4 class="m-2 p-2 bg-primary text-white">БД успешно создан. <a class="text-white" href="/"> вы можете исползовать сайта </a></h4>
+}
+else
+{
+    <form asp-action="Migrate" method="post">
+        <button class="btn btn-primary">Мигрировать</button>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-outline-primary">Отменить</a>
+    </form>
+}

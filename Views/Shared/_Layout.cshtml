@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AccountedOfFamily</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" asp-href-include="~/lib/fontawesome-free-6.1.1-web/css/*.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="~/images/logo.png" class="logo" />
+                </a>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link text-dark">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Incomes" asp-controller="Economic"
+                               class="nav-link text-dark">Доходи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Expenses" asp-controller="Economic"
+                               class="nav-link text-dark">Затраты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Deposits" asp-controller="Economic"
+                               class="nav-link text-dark">Депозити</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="WaitingTransactions" asp-controller="Economic"
+                               class="nav-link text-dark">Планирование</a>
+                        </li>
+                        @await Component.InvokeAsync("AdminPanel")
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - AccountedOfFamily
+        </div>
+    </footer>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                console.log("fayl tanlandi");
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        })
+    </script>
+
+</body>
+</html>

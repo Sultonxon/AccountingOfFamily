@@ -1,0 +1,46 @@
+﻿@model WaitingTransactionEditModel
+
+<div asp-validation-summary="All"></div>
+<form method="post" asp-action="Create" asp-route-returnUrl="@ViewBag.returnUrl">
+    <input type="hidden" name="Id" value="@Model.WaitingTransaction.Id" />
+    <input type="hidden" name="StartDate" value="@Model.WaitingTransaction.StartDate" />
+    <div class="form-group">
+        <label asp-for="WaitingTransaction.AppUserId">Имя владелеца планирующе транзакции</label>
+        <select asp-for="WaitingTransaction.AppUser" name="AppUserId" class="form-control">
+            <option value=""></option>
+            @foreach (var u in Model.Users)
+            {
+                <option value="@u.Key">@u.Value</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaitingTransaction.Amount">Сумма</label>
+        <input asp-for="WaitingTransaction.Amount" name="Amount" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WaitingTransaction.Comment">Комментария</label>
+        <input asp-for="WaitingTransaction.Comment" name="Comment" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WaitingTransaction.EndDate">Последний срок выполнения</label>
+        <input asp-for="WaitingTransaction.EndDate" name="EndDate" class="form-control" />
+    </div>
+    <div class="form-control">
+        <label asp-for="WaitingTransaction.isIncome">Тип транзакция</label>
+        <select asp-for="WaitingTransaction.isIncome" name="inIncome">
+            <option value="true" selected>Доход</option>
+            <option value="false">Затрать</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="WaitingTransaction.PartnerDescription">Партнёр</label>
+        <input asp-for="WaitingTransaction.PartnerDescription" name="PartnerDescription" class="form-control" />
+    </div>
+    <button class="btn btn-primary" type="submit">Добавить</button>
+    <a class="btn btn-outline-primary" href="@ViewBag.returnUrl">Отменить</a>
+</form>
+
+

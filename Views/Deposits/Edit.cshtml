@@ -1,0 +1,42 @@
+﻿@model DepositEditModel
+
+<div asp-validation-summary="All"></div>
+<form method="post" asp-action="Update" asp-route-returnUrl="@ViewBag.returnUrl">
+    <input type="hidden" name="Id" value="@Model.Deposit.Id" />
+    <div class="form-group">
+        <label asp-for="Deposit.AppUserId">Владелец</label>
+        <select asp-for="Deposit.AppUserId" name="AppUserId" class="form-control">
+            @foreach (var id in Model.Users.Keys)
+            {
+                if (Model.Deposit.AppUserId == id)
+                {
+                    <option value="@id" selected>@Model.Users[id]</option>
+                }
+                else
+                {
+                    <option value="@id">@Model.Users[id]</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Deposit.Depositor">Владелец</label>
+        <input asp-for="Deposit.Depositor" name="Depositor" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Deposit.Amount">Владелец</label>
+        <input asp-for="Deposit.Amount" name="Amount" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Deposit.NumberAccountDeposit">Владелец</label>
+        <input asp-for="Deposit.NumberAccountDeposit" name="NumberAccountDeposit" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Deposit.Deadline">Владелец</label>
+        <input asp-for="Deposit.Deadline" name="Deadline" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="@ViewBag.returnUrl" class="btn btn-outline-primary">Отменить</a>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+﻿@model UserCreateModel
+<h4 class="p-2 m-2 bg-primary text-white">Добавить ползователь</h4>
+<div asp-validation-summary="All"></div>
+<form asp-action="Create" method="post" class="form" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Photo" class="col-sm-2 col-form-label">Фото</label>
+        <div class="col-sm-10">
+            <input asp-for="Photo" class="form-control custom-file-input" />
+            <label class="custom-file-label">Выбирите файл</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName">UserName</label>
+        <input asp-for="UserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName">Имя</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Фамилия</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">электрон почта</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDay">Ден рождения</label>
+        <input asp-for="BirthDay" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PasportSeriya">Серия паспорта</label>
+        <input asp-for="PasportSeriya" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PasportNumber">Номер паспорта</label>
+        <input asp-for="PasportNumber" class="form-control" />
+    </div><div class="form-group">
+        <label asp-for="Password">Пароль</label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+    <a asp-action="Users" class="btn btn-outline-primary">Отменить</a>
+</form>

@@ -1,0 +1,42 @@
+﻿@model DepositsViewModel
+
+<h4 class="bg-primary p-2">Депозити</h4>
+
+<a class="btn btn-primary" asp-action="Create" asp-controller="Deposits"
+   asp-route-returnUrl="@Context.Request.PathAndQuery()">Добавить</a>
+<table class="table table-striped table-sm table-bordered">
+    <thead>
+        <tr>
+            <th>Номер счёта</th>
+            <th>Сумма</th>
+            <th>Депозитор(Банк)</th>
+            <th>Время вложения денег</th>
+            <th>Срок</th>
+            <th>Владелец</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="place"><td colspan="7" class="text-center"> No Data </td></tr>
+        @foreach (var d in Model.Deposits)
+        {
+            <tr>
+                <td>@d.NumberAccountDeposit</td>
+                <td>@d.Amount</td>
+                <td>@d.Depositor</td>
+                <td>@d.DateStart</td>
+                <td>@d.Deadline</td>
+                <td>@d.AppUser.FirstName</td>
+                <td>
+                    <form method="post" asp-action="Delete" asp-controller="Deposits">                        
+                        <input name="Id" value="@d.Id" type="hidden" />
+                        <input type="hidden" name="returnUrl" value="@Context.Request.PathAndQuery()" />
+                        <a asp-action="Edit" asp-controller="Deposits" asp-route-id="@d.Id" asp-route-returnUrl="@Context.Request.PathAndQuery()" 
+                           class="btn btn-outline-primary">Edit</a>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

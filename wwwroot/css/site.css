@@ -1,0 +1,243 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.active{
+    background-color:#03a9a4;
+    color:white;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color:#e5e5e5;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+  background-color:#030d2f;
+}
+
+.place{
+    visibility:hidden;
+}
+
+.place:only-child{
+    visibility:visible;
+}
+
+.form{
+    border:1px solid;
+    border-color:red;
+    border-radius:5px;
+    padding: 10px;
+}
+
+.logo{
+    width:100px;
+}
+
+.col img{
+    width:100%;
+}
+
+.social{
+    padding-left:30px;
+    padding-top:30px;
+}
+
+.black-line{
+    display:inline-block;
+    width:120px;
+    height:8px;
+    background-color:black;
+}
+
+.social-text{
+    font-size:20px;
+}
+
+.social-header{
+    font-size:60px;
+}
+
+.cart {
+    display: inline-block;
+    width: 43%;
+    margin: 15px;
+    border-radius: 5px;
+    box-sizing:border-box;
+    padding-bottom: 30px;
+    background-color: white;
+    box-shadow: 10px 10px 5px lightblue;
+}
+
+.color-aqua{
+    color:aqua
+}
+
+.color-blue{
+    color:blue
+}
+
+.color-yellow{
+    color:#e4df12;
+}
+
+.color-red{
+    color:red;
+}
+
+.cart__logo{
+    margin:40px;
+    font-size:60px;
+}
+
+.cart__body{
+    margin-left:30px;
+
+}
+
+.cart__body h4{
+    margin-bottom:25px;
+}
+
+.cart__body p{
+    font-style:italic;
+}
+
+.report{
+    padding-top:60px;
+}
+
+.report h4 {
+    margin: 30px;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.report p{
+    margin-left:30px;
+    font-style:italic;
+}
+
+.report .btn{
+    background-color:#030d2f;
+    color:white;
+    font-weight:bold;
+    margin:30px;
+}
+
+.report .btn:hover {
+    background-color: #0f8de0;
+}
+
+.tableimg {
+    margin-top: 70px;
+    background-image: url(/images/b.jpeg);
+    background-size:100%;
+    height:500px;
+}
+
+.blueplace{
+    margin-top:180px;
+    position:relative;
+    z-index:-1;
+    background-color:aqua;
+    display:inline-block;
+    left:-25%;
+    width:150%;
+    height:90px;
+}
+
+.users{
+    position:relative;
+    top:-250px;
+    background-color:white;
+    min-height:400px;
+}
+
+.user-card{
+    position:relative;
+    left:20px;
+    width:45%;
+    border:solid 1px;
+    border-color:red;
+    margin-left:20px;
+    margin-top:20px;
+}
+.user-card a{
+    display:inline-block;
+
+}
+.user-img{
+    display:inline-block;
+    position:relative;
+    font-size:100px;
+}
+.user-img img{
+    width:100px;
+}
+.user-body{
+    display:inline-block;
+    position:relative;
+}

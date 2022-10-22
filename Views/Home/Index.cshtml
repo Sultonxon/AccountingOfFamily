@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AppUser>
+
+<div class="row">
+    <div class="col social">
+        <span class="black-line"></span>
+        <h4 class="social-header">Домашняя<br /> бухгалтерия</h4>
+        <p class="social-text">С помощю этого платформа вы можете управлять ваше фынансовий операции. 
+        Это очен экономит ваше время и затрати.</p>
+    </div>
+    <div class="col">
+        <img src="~/images/a.jpeg" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="cart">
+            <div class="cart__logo">
+                <i class="fa-solid fa-hand-holding-dollar color-aqua"></i>
+            </div>
+            <div class="cart__body">
+                <h4>Доходы</h4>
+                <p>Ваше все семейное доходы</p>
+            </div>
+        </div>
+        <div class="cart">
+            <div class="cart__logo">
+                <i class="fa-solid fa-money-check-dollar color-blue"></i>
+            </div>
+            <div class="cart__body">
+                <h4>Затрати</h4>
+                <p>Ваше все семейное затраты</p>
+            </div>
+        </div>
+        <div class="cart">
+            <div class="cart__logo">
+                <i class="fa-solid fa-money-bill-transfer color-yellow"></i>
+            </div>
+            <div class="cart__body">
+                <h4>Депозити</h4>
+                <p>Если в вашем семя у кого то есть депозитний сумма тогда вы можете
+                найти данных ою этом на этом сайте.</p>
+            </div>
+        </div>
+        <div class="cart">
+            <div class="cart__logo">
+                <i class="fa-solid fa-square-poll-horizontal color-red"></i>
+            </div>
+            <div class="cart__body">
+                <h4>Планированний денежний операции</h4>
+                <p>Вы можете планировать и очен легко управлять ваше будуще денежной операции</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-5 report">
+        <h4>Ваше финансовый отчёти</h4>
+        <p>
+            Содыраемся все данный о денежной операции ваше семя. Вы можете управлять, изменять, удалять ненужнии и
+            выполнить другий действии
+        </p>
+        <a class="btn" asp-action="all" asp-controller="Economic">ПОДРОБНЕЕ</a>
+    </div>
+</div>
+
+<div class="tableimg">
+
+</div>
+
+<div class="blueplace"></div>
+
+<div class="users">
+    <div class="row">
+        @foreach (var user in Model)
+        {
+            <div class="user-card">
+                <a>
+                    <div class="user-img">
+                        @if (user.Img != null)
+                        {
+                            <img src="@user.Img" />
+                        }
+                        else
+                        {
+                            @*<img src="/images/5.jpg" />*@
+                            <ul class="fa fa-user"></ul>
+                        }
+                    </div>
+                </a>
+                <div class="user-body">
+                    <h4>@user.FirstName</h4>
+                </div>
+            </div>
+        }
+    </div>
+</div>

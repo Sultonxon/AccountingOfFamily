@@ -1,0 +1,58 @@
+﻿@model PagedModel<WaitingTransaction>
+
+    <h4 class="bg-primary p-2">Планирований транзакции</h4>
+    <a class="btn btn-primary" asp-action="Create" asp-controller="WaitingTransaction"
+       asp-route-returnUrl="@Context.Request.PathAndQuery()">Добавить</a>
+    <table class="table table-striped table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Имя владелеца</th>
+                <th>Сумма</th>
+                <th>Второй сторон транзакции</th>
+                <th>Время соглашения</th>
+                <th>Время выполнения</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr class="place"><td colspan="7" class="text-center">No Data</td></tr>
+        @foreach (var w in Model.Elements)
+        {
+            <tr>
+                <td>@w.AppUser.FirstName</td>
+                <td>@w.Amount</td>
+                <td>@w.PartnerDescription</td>
+                <td>@w.StartDate</td>
+                <td>@w.EndDate</td>
+                <td>
+                    <form method="post" asp-action="Delete" asp-controller="WaitingTransaction"
+                          asp-route-returnUrl="@Context.Request.PathAndQuery()">
+                        <input type="hidden" name="id" value="@w.Id" />
+                        <a class="btn btn-outline-primary" asp-action="Edit" asp-controller="WaitingTransaction"
+                           asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-route-id="@w.Id">Редактировать</a>
+                        <button class="btn btn-outline-danger" type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    <tfoot>
+        <tr>
+            <td class="text-right">Ожидается</td>
+            <td colspan="2">@Model.Elements.Where(w=>w.EndDate>DateTime.Now).Count()</td>
+            <td class="text-right">Сумма</td><td colspan="2">@Model.Elements.Where(w => w.EndDate > DateTime.Now).Select(w=>w.isIncome?w.Amount:-1*w.Amount).Sum(w=>w)</td>
+        </tr>
+    </tfoot>
+    </table>
+
+
+    <ul class="pagination">
+        
+        @foreach (DateTime date in Model.Months)
+        {
+            <li class="page-item">
+                <a class="page-link @((date.Year==Model.Year && date.Month==Model.Month) ? "active" : "")"
+                   asp-action="WaitingTransactions" asp-route-year="@date.Year"
+                   asp-route-month="@date.Month">@(date.Year+"."+date.Month)</a>
+            </li>
+        }
+        
+    </ul>

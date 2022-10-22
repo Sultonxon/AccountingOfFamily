@@ -1,0 +1,62 @@
+﻿@model IncomeEditModel
+
+<div asp-validation-summary="All"></div>
+<form method="post" asp-action="Update" asp-route-returnUrl="@ViewBag.returnUrl">
+    <input type="hidden" name="Id" value="@Model.Income.Id" />
+    <div class="form-group">
+        <label asp-for="Income.AppUserId">Владелец дохода</label>
+        <select asp-for="Income.AppUserId" name="AppUserId" class="form-control">
+            <option value=""></option>
+            @foreach (var id in Model.Users.Keys)
+            {
+                if (Model.Income.AppUserId == id)
+                {
+                    <option value="@id" selected>@Model.Users[id]</option>
+                }
+                else
+                {
+                    <option value="@id">@Model.Users[id]</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Income.Amount">Сумма</label>
+        <input asp-for="Income.Amount" name="Amount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Income.Comment">Комментария</label>
+        <input asp-for="Income.Comment" name="Comment" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Income.InCategoryId">Категория дохода</label>
+        <select asp-for="Income.InCategoryId" name="InCategoryId" class="form-control">
+            <option value=""></option>
+            @foreach (var c in Model.Categories)
+            {
+                if (Model.Income.InCategoryId == c.Id)
+                {
+                    <option value="@c.Id" selected>@c.Name</option>
+                }
+                else
+                {
+                    <option value="@c.Id">@c.Name</option>
+                }
+            }
+            <option value="-1">Другое</option>
+        </select>
+        <div class="row">
+            <div class="col-5">
+                <label asp-for="NewCategoryName">Имя нового категория</label>
+                <input asp-for="NewCategoryName" class="form-control" />
+            </div>
+            <div class="col-5">
+                <label asp-for="NewCategoryDescription">Имя нового категория</label>
+                <input asp-for="NewCategoryDescription" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="@ViewBag.returnUrl" class="btn btn-outline-primary">Отменить</a>
+</form>

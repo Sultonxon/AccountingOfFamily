@@ -1,0 +1,32 @@
+﻿@model LoginModel
+<h4 class="p-2 bg-primary text-white">Login</h4>
+<div asp-validation-summary="All"></div>
+<form asp-action="Login" method="post">
+    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+    <div class="row">
+        <div class="col-3">
+            <label asp-for="Name">Имя</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Name" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label asp-for="Email">Email</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Email" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label asp-for="Password">Пароль</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Вход</button>
+    <a class="btn btn-outline-danger" href="@ViewBag.returnUrl">Назад</a>
+</form>
