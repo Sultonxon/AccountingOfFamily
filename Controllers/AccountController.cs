@@ -56,6 +56,10 @@ namespace AccountedOfFamily.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetRoles() =>
+            Ok(new { Roles = roleManager.Roles.Where(x => User.IsInRole(x.Name)) });
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout(string returnUrl)

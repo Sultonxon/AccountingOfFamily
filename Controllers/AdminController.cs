@@ -146,7 +146,7 @@ namespace AccountedOfFamily.Controllers
                     ModelState.AddModelError(error.Code, error.Description);
                 }
             }
-            return View(user);
+            return View(model);
 
         } 
     }
