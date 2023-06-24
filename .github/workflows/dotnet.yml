@@ -28,9 +28,4 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish -c Release -o website
-    - name: PushAdd
-      run: git add .
-    - name: PushCommit
-      run: git commit -m "published"
-    - name: Push
-      run: git push
+    
